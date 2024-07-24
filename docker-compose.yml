@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  game-catalog:
+    build: ./game-catalog
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./game-catalog/src:/usr/src/app/src
+    environment:
+      NODE_ENV: development
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend/src:/usr/share/nginx/html
